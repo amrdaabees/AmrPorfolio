@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amr Daabees | Digital Marketing Specialist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --gold:#c9a84c;--gold-light:#e8c96d;--gold-dark:#8b6914;
+      --black:#0a0a0a;--black-2:#111111;--black-3:#1a1a1a;--black-4:#222222;
+      --white:#f5f5f5;--gray:#888888;
+      --font-ar:'Cairo',sans-serif;--font-en:'Poppins',sans-serif;
+      --transition:0.4s cubic-bezier(.25,.46,.45,.94);
+    }
+    html{scroll-behavior:smooth;overflow-x:hidden}
+    body{background:var(--black);color:var(--white);font-family:var(--font-ar);overflow-x:hidden;cursor:none}
+    body.en-mode{font-family:var(--font-en)}
+
+    /* LANGUAGE */
+    .la{display:inline}.le{display:none!important}
+    .la.bl{display:block}.la.fx{display:flex}
+    body.en-mode .la{display:none!important}
+    body.en-mode .le{display:inline!important}
+    body.en-mode .le.bl{display:block!important}
+    body.en-mode .le.fx{display:flex!important}
+    .le.reveal,.le.reveal-left,.le.reveal-right{transform:none!important}
+    body.en-mode .le.reveal,body.en-mode .le.reveal-left,body.en-mode .le.reveal-right{opacity:1!important;transform:none!important}
+
+    /* LTR overrides */
+    [dir="ltr"] .hero-img-wrap{left:auto;right:60px}
+    [dir="ltr"] .timeline{padding-right:0;padding-left:30px}
+    [dir="ltr"] .timeline::before{right:auto;left:0}
+    [dir="ltr"] .timeline-dot{right:auto;left:-38px}
+    [dir="ltr"] .timeline-card:hover{transform:translateX(6px)}
+    [dir="ltr"] .contact-item:hover{transform:translateX(6px)}
+    [dir="ltr"] .about-img-box .about-deco{left:auto;right:-20px}
+    [dir="ltr"] .about-badge{right:auto;left:-20px}
+    [dir="ltr"] .service-num{left:auto;right:16px}
+
+    /* CURSOR */
+    .cursor{width:12px;height:12px;background:var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:99999;transition:transform .1s ease}
+    .cursor-follower{width:36px;height:36px;border:1.5px solid var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:99998;transition:transform .15s ease,opacity .3s;opacity:.5}
+    .cursor.active{transform:scale(3);opacity:.5}
+    #particles-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+    ::-webkit-scrollbar{width:4px}
+    ::-webkit-scrollbar-track{background:var(--black-2)}
+    ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+
+    /* NAVBAR */
+    nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 50px;display:flex;align-items:center;justify-content:space-between;transition:all var(--transition)}
+    nav.scrolled{background:rgba(10,10,10,.96);backdrop-filter:blur(20px);padding:12px 50px;border-bottom:1px solid rgba(201,168,76,.2);box-shadow:0 4px 30px rgba(0,0,0,.5)}
+    .logo{font-family:var(--font-en);font-size:1.5rem;font-weight:900;background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:2px}
+    .nav-links{display:flex;gap:28px;list-style:none}
+    .nav-links a{font-size:.82rem;font-weight:600;color:var(--gray);text-decoration:none;position:relative;transition:color var(--transition)}
+    .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform var(--transition)}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold)}
+    .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);transform-origin:left}
+    .nav-right{display:flex;align-items:center;gap:14px}
+    .lang-toggle{background:transparent;border:1.5px solid var(--gold);color:var(--gold);font-weight:700;font-size:.78rem;padding:6px 16px;border-radius:50px;cursor:pointer;transition:all var(--transition);letter-spacing:1px;display:flex;align-items:center;gap:6px;font-family:var(--font-en)}
+    .lang-toggle:hover{background:var(--gold);color:var(--black)}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001}
+    .hamburger span{display:block;width:26px;height:2px;background:var(--gold);transition:all .3s}
+
+    /* HERO */
+    #hero{min-height:100vh;position:relative;display:flex;align-items:center;padding:0 60px;overflow:hidden;z-index:1}
+    .hero-content{max-width:640px;z-index:2;position:relative}
+    .hero-tag{display:inline-flex;align-items:center;gap:10px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);padding:8px 20px;border-radius:50px;font-size:.82rem;color:var(--gold);letter-spacing:1px;margin-bottom:24px;font-family:var(--font-en)}
+    .hero-tag i{font-size:.7rem;animation:blink 1.2s infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+    .hero-name{font-family:var(--font-en);font-size:clamp(3rem,6.5vw,5.5rem);font-weight:900;line-height:1.05;letter-spacing:-2px}
+    .hero-name .first{color:var(--white)}.hero-name .last{background:linear-gradient(135deg,var(--gold-light),var(--gold),var(--gold-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero-title{font-size:clamp(1rem,2.2vw,1.4rem);font-weight:400;color:var(--gray);margin:16px 0 28px;min-height:2em}
+    .typed-cursor{display:inline-block;width:2px;height:1.2em;background:var(--gold);margin-right:4px;animation:blink .8s infinite;vertical-align:middle}
+    .hero-desc{font-size:.95rem;color:var(--gray);line-height:2;max-width:560px;margin-bottom:36px}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+    .btn-primary{display:inline-flex;align-items:center;gap:10px;padding:13px 32px;border-radius:50px;background:linear-gradient(135deg,var(--gold-light),var(--gold));color:var(--black);font-weight:700;font-size:.92rem;text-decoration:none;border:none;cursor:pointer;transition:all var(--transition);box-shadow:0 8px 30px rgba(201,168,76,.3)}
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(201,168,76,.5)}
+    .btn-secondary{display:inline-flex;align-items:center;gap:10px;padding:13px 32px;border-radius:50px;background:transparent;color:var(--gold);font-weight:700;font-size:.92rem;text-decoration:none;cursor:pointer;border:1.5px solid var(--gold);transition:all var(--transition)}
+    .btn-secondary:hover{background:rgba(201,168,76,.1);transform:translateY(-3px)}
+    .hero-stats{display:flex;gap:44px;margin-top:56px}
+    .stat-item{text-align:center}
+    .stat-num{font-family:var(--font-en);font-size:2.2rem;font-weight:900;background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+    .stat-label{font-size:.78rem;color:var(--gray);margin-top:4px}
+    .hero-img-wrap{position:absolute;left:60px;top:50%;transform:translateY(-50%);z-index:1;animation:float-hero 6s ease-in-out infinite}
+    @keyframes float-hero{0%,100%{transform:translateY(-50%)}50%{transform:translateY(calc(-50% - 14px))}}
+    .hero-circle{width:400px;height:400px;border-radius:50%;border:1px solid rgba(201,168,76,.3);display:flex;align-items:center;justify-content:center;position:relative;animation:rotate-ring 25s linear infinite,ring-glow 4s ease-in-out infinite}
+    @keyframes rotate-ring{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+    @keyframes ring-glow{0%,100%{border-color:rgba(201,168,76,.2)}50%{border-color:rgba(201,168,76,.6)}}
+    .hero-circle::before{content:'';position:absolute;inset:20px;border-radius:50%;border:1px dashed rgba(201,168,76,.15)}
+    .hero-avatar{width:310px;height:310px;border-radius:50%;background:var(--black-3);display:flex;align-items:center;justify-content:center;border:3px solid rgba(201,168,76,.4);animation:rotate-ring 25s linear infinite reverse;overflow:hidden}
+    .hero-avatar img{width:100%;height:100%;object-fit:cover;object-position:top center}
+    .hero-dot{position:absolute;width:14px;height:14px;background:var(--gold);border-radius:50%;top:10px;left:50%;transform:translateX(-50%);box-shadow:0 0 20px var(--gold)}
+    .scroll-down{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--gray);font-size:.72rem;letter-spacing:2px;animation:bounce 2s infinite;z-index:2;text-decoration:none}
+    .scroll-down i{color:var(--gold);font-size:1.1rem}
+    @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-8px)}}
+
+    /* SECTIONS */
+    section{position:relative;z-index:1;padding:100px 60px}
+    .section-tag{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-en);font-size:.78rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px}
+    .section-tag::before,.section-tag::after{content:'';display:block;width:30px;height:1px;background:var(--gold)}
+    .section-title{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;line-height:1.2;margin-bottom:16px}
+    .section-title span{background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .section-sub{font-size:.97rem;color:var(--gray);line-height:1.9;max-width:680px;margin-bottom:56px}
+    .gold-divider{width:80px;height:3px;background:linear-gradient(90deg,var(--gold-dark),var(--gold-light));border-radius:2px;margin-bottom:48px}
+    .reveal{opacity:0;transform:translateY(50px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .reveal-left{opacity:0;transform:translateX(-50px);transition:opacity .7s ease,transform .7s ease}
+    .reveal-left.visible{opacity:1;transform:translateX(0)}
+    .reveal-right{opacity:0;transform:translateX(50px);transition:opacity .7s ease,transform .7s ease}
+    .reveal-right.visible{opacity:1;transform:translateX(0)}
+
+    /* ABOUT */
+    #about{background:var(--black-2)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .about-img-box{position:relative}
+    .about-img-frame{width:100%;aspect-ratio:4/5;border-radius:20px;background:var(--black-3);border:1px solid rgba(201,168,76,.2);overflow:hidden;position:relative}
+    .about-img-frame img{width:100%;height:100%;object-fit:cover;object-position:top}
+    .about-img-frame::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(10,10,10,.6));z-index:1}
+    .about-badge{position:absolute;bottom:-20px;right:-20px;background:var(--gold);color:var(--black);border-radius:50%;width:110px;height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:900;animation:glow-pulse-gold 3s ease-in-out infinite}
+    @keyframes glow-pulse-gold{0%,100%{box-shadow:0 10px 40px rgba(201,168,76,.4)}50%{box-shadow:0 10px 60px rgba(201,168,76,.8),0 0 100px rgba(201,168,76,.2)}}
+    .about-badge .num{font-family:var(--font-en);font-size:1.8rem;line-height:1}
+    .about-badge .lbl{font-size:.65rem;text-align:center;line-height:1.3}
+    .about-deco{position:absolute;top:-20px;left:-20px;width:80px;height:80px;border:2px solid var(--gold);border-radius:12px;opacity:.4}
+    .about-info{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:36px}
+    .info-item{background:var(--black-3);border:1px solid rgba(201,168,76,.1);border-radius:12px;padding:16px 20px;display:flex;align-items:center;gap:14px;transition:all var(--transition)}
+    .info-item:hover{border-color:rgba(201,168,76,.4);background:rgba(201,168,76,.05);transform:translateY(-2px)}
+    .info-item i{color:var(--gold);font-size:1.1rem;min-width:20px}
+    .info-item .val{font-size:.85rem;color:var(--white);font-weight:600}
+    .info-item .key{font-size:.72rem;color:var(--gray)}
+
+    /* SKILLS */
+    #skills{background:var(--black)}
+    .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+    .skill-cat-title{font-size:1.1rem;font-weight:700;color:var(--gold);margin-bottom:28px;display:flex;align-items:center;gap:10px}
+    .skill-item{margin-bottom:24px}
+    .skill-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+    .skill-name{font-size:.9rem;font-weight:600}
+    .skill-pct{font-family:var(--font-en);font-size:.85rem;color:var(--gold);font-weight:700}
+    .skill-pct{display:none!important}.skill-bar{height:6px;background:var(--black-3);border-radius:3px;overflow:hidden;border:1px solid rgba(201,168,76,.1)}
+    .skill-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--gold-dark),var(--gold-light),#fff8d6,var(--gold-dark));background-size:300% auto;border-radius:3px;transition:width 1.5s cubic-bezier(.25,.46,.45,.94);position:relative;animation:shimmer-bar 3s linear infinite}
+    .skill-fill::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);width:10px;height:10px;border-radius:50%;background:var(--gold-light);box-shadow:0 0 10px var(--gold)}
+    @keyframes shimmer-bar{0%{background-position:200% center}100%{background-position:-200% center}}
+    .tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:60px}
+    .tool-card{background:var(--black-3);border:1px solid rgba(201,168,76,.1);border-radius:16px;padding:22px 16px;text-align:center;cursor:default;transition:all var(--transition)}
+    .tool-card:hover{border-color:var(--gold);background:rgba(201,168,76,.08);transform:translateY(-6px);box-shadow:0 20px 40px rgba(201,168,76,.15)}
+    .tool-card i{font-size:1.8rem;color:var(--gold);margin-bottom:10px;display:block}
+    .tool-card span{font-size:.78rem;color:var(--gray)}
+
+    /* PROJECTS */
+    #projects{background:var(--black-2)}
+    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+    .project-card{background:var(--black-3);border:1px solid rgba(201,168,76,.1);border-radius:20px;overflow:hidden;transition:all var(--transition)}
+    .project-card:hover{border-color:rgba(201,168,76,.5);transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.4),0 0 40px rgba(201,168,76,.1)}
+    .project-thumb{height:180px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:relative;overflow:hidden}
+    .project-tag-badge{position:absolute;top:14px;right:14px;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);color:var(--gold);font-size:.7rem;padding:4px 12px;border-radius:50px;font-family:var(--font-en)}
+    .project-body{padding:24px}
+    .project-title{font-size:1.05rem;font-weight:700;margin-bottom:10px}
+    .project-desc{font-size:.85rem;color:var(--gray);line-height:1.8;margin-bottom:18px}
+    .project-metrics{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+    .metric{display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--gold)}
+    .project-tools{display:flex;gap:8px;flex-wrap:wrap}
+    .ptool{font-size:.7rem;font-family:var(--font-en);background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.15);color:var(--gold);padding:3px 10px;border-radius:50px}
+
+    /* SERVICES */
+    #services{background:var(--black)}
+    .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .service-card{background:var(--black-3);border:1px solid rgba(201,168,76,.1);border-radius:20px;padding:26px 20px;position:relative;overflow:hidden;transition:all .4s cubic-bezier(.25,.46,.45,.94);cursor:default}
+    .service-card:hover{transform:translateY(-10px) scale(1.02);box-shadow:0 30px 60px rgba(0,0,0,.5),0 0 40px rgba(201,168,76,.08)}
+    .service-icon{width:54px;height:54px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.35rem;margin-bottom:14px;transition:all .4s;border:1px solid transparent}
+    /* Colorful icons */
+    .service-card:nth-child(1) .service-icon{background:rgba(24,119,242,.15);border-color:rgba(24,119,242,.3);color:#1877F2}
+    .service-card:nth-child(1):hover .service-icon{background:#1877F2;color:#fff;box-shadow:0 8px 24px rgba(24,119,242,.5);transform:scale(1.15) rotate(-5deg)}
+    .service-card:nth-child(2) .service-icon{background:rgba(0,132,255,.15);border-color:rgba(0,132,255,.3);color:#0084FF}
+    .service-card:nth-child(2):hover .service-icon{background:#0084FF;color:#fff;box-shadow:0 8px 24px rgba(0,132,255,.5);transform:scale(1.15) rotate(-5deg)}
+    .service-card:nth-child(3) .service-icon{background:rgba(37,244,238,.12);border-color:rgba(37,244,238,.3);color:#25F4EE}
+    .service-card:nth-child(3):hover .service-icon{background:linear-gradient(135deg,#25F4EE,#FE2C55);color:#fff;box-shadow:0 8px 24px rgba(37,244,238,.4);transform:scale(1.15) rotate(-5deg)}
+    .service-card:nth-child(4) .service-icon{background:rgba(16,185,129,.15);border-color:rgba(16,185,129,.3);color:#10B981}
+    .service-card:nth-child(4):hover .service-icon{background:#10B981;color:#fff;box-shadow:0 8px 24px rgba(16,185,129,.5);transform:scale(1.15) rotate(-5deg)}
+    .service-card:nth-child(5) .service-icon{background:rgba(245,158,11,.15);border-color:rgba(245,158,11,.3);color:#F59E0B}
+    .service-card:nth-child(5):hover .service-icon{background:#F59E0B;color:#fff;box-shadow:0 8px 24px rgba(245,158,11,.5);transform:scale(1.15) rotate(-5deg)}
+    .service-card:nth-child(6) .service-icon{background:rgba(139,92,246,.15);border-color:rgba(139,92,246,.3);color:#8B5CF6}
+    .service-card:nth-child(6):hover .service-icon{background:#8B5CF6;color:#fff;box-shadow:0 8px 24px rgba(139,92,246,.5);transform:scale(1.15) rotate(-5deg)}
+    .service-card:nth-child(7) .service-icon{background:rgba(239,68,68,.15);border-color:rgba(239,68,68,.3);color:#EF4444}
+    .service-card:nth-child(7):hover .service-icon{background:#EF4444;color:#fff;box-shadow:0 8px 24px rgba(239,68,68,.5);transform:scale(1.15) rotate(-5deg)}
+    .service-card:nth-child(8) .service-icon{background:rgba(59,130,246,.15);border-color:rgba(59,130,246,.3);color:#3B82F6}
+    .service-card:nth-child(8):hover .service-icon{background:#3B82F6;color:#fff;box-shadow:0 8px 24px rgba(59,130,246,.5);transform:scale(1.15) rotate(-5deg)}
+    .service-card:nth-child(9) .service-icon{background:rgba(236,72,153,.15);border-color:rgba(236,72,153,.3);color:#EC4899}
+    .service-card:nth-child(9):hover .service-icon{background:#EC4899;color:#fff;box-shadow:0 8px 24px rgba(236,72,153,.5);transform:scale(1.15) rotate(-5deg)}
+    .service-card:nth-child(10) .service-icon{background:rgba(99,102,241,.15);border-color:rgba(99,102,241,.3);color:#6366F1}
+    .service-card:nth-child(10):hover .service-icon{background:#6366F1;color:#fff;box-shadow:0 8px 24px rgba(99,102,241,.5);transform:scale(1.15) rotate(-5deg)}
+    .service-card:nth-child(11) .service-icon{background:rgba(20,184,166,.15);border-color:rgba(20,184,166,.3);color:#14B8A6}
+    .service-card:nth-child(11):hover .service-icon{background:#14B8A6;color:#fff;box-shadow:0 8px 24px rgba(20,184,166,.5);transform:scale(1.15) rotate(-5deg)}
+    .service-num{position:absolute;top:16px;left:16px;font-family:var(--font-en);font-size:3rem;font-weight:900;color:rgba(255,255,255,.04);line-height:1;pointer-events:none}
+    .service-title{font-size:.92rem;font-weight:700;margin-bottom:10px;line-height:1.4}
+    .service-desc{font-size:.77rem;color:var(--gray);line-height:1.8;margin-bottom:14px}
+    .service-tags{display:flex;gap:6px;flex-wrap:wrap}
+    .service-tags span{font-size:.66rem;font-family:var(--font-en);background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.15);color:var(--gold);padding:3px 9px;border-radius:50px}
+    @media(max-width:1100px){.services-grid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:700px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:480px){.services-grid{grid-template-columns:1fr}}
+
+    /* EXPERIENCE */
+    #experience{background:var(--black-2)}
+    .timeline{position:relative;padding-right:30px}
+    .timeline::before{content:'';position:absolute;right:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--gold),transparent)}
+    .timeline-item{display:grid;grid-template-columns:1fr auto;gap:40px;margin-bottom:56px;position:relative}
+    .timeline-dot{position:absolute;right:-38px;top:8px;width:16px;height:16px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(201,168,76,.2),0 0 20px var(--gold)}
+    .timeline-card{background:var(--black-3);border:1px solid rgba(201,168,76,.1);border-radius:20px;padding:32px;transition:all var(--transition)}
+    .timeline-card:hover{border-color:rgba(201,168,76,.4);transform:translateX(-6px);box-shadow:0 20px 50px rgba(0,0,0,.3)}
+    .timeline-period{text-align:center;padding-top:8px}
+    .period-badge{display:inline-block;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.2);color:var(--gold);font-family:var(--font-en);font-size:.76rem;padding:6px 14px;border-radius:50px;white-space:nowrap}
+    .exp-company{font-size:.76rem;color:var(--gold);font-family:var(--font-en);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+    .exp-title{font-size:1.15rem;font-weight:700;margin-bottom:12px}
+    .exp-desc{font-size:.86rem;color:var(--gray);line-height:1.9;margin-bottom:16px}
+    .exp-achievements{list-style:none}
+    .exp-achievements li{font-size:.84rem;color:var(--gray);padding:5px 0;display:flex;align-items:flex-start;gap:10px}
+    .exp-achievements li::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0;margin-top:7px}
+
+    /* EDUCATION */
+    #education{background:var(--black)}
+    .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+    .edu-card{background:var(--black-3);border:1px solid rgba(201,168,76,.1);border-radius:20px;padding:32px;transition:all var(--transition);position:relative;overflow:hidden}
+    .edu-card::before{content:'';position:absolute;top:0;right:0;left:0;height:3px;background:linear-gradient(90deg,var(--gold-dark),var(--gold-light))}
+    .edu-card:hover{border-color:rgba(201,168,76,.4);transform:translateY(-6px);box-shadow:0 24px 50px rgba(0,0,0,.4)}
+    .edu-icon{width:56px;height:56px;border-radius:14px;background:rgba(201,168,76,.1);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--gold);margin-bottom:20px;overflow:hidden}
+    .edu-degree{font-size:1.05rem;font-weight:700;margin-bottom:6px}
+    .edu-school{font-size:.85rem;color:var(--gold);margin-bottom:6px}
+    .edu-year{font-size:.78rem;color:var(--gray);font-family:var(--font-en)}
+    .edu-grade{display:inline-block;margin-top:10px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.2);color:var(--gold);font-size:.72rem;padding:3px 12px;border-radius:50px}
+    .certs-slider{display:flex;overflow:hidden;margin-top:60px}
+    .cert-track{display:flex;gap:20px;animation:slide-certs 22s linear infinite}
+    @keyframes slide-certs{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .cert-card{flex-shrink:0;background:var(--black-3);border:1px solid rgba(201,168,76,.15);border-radius:14px;padding:18px 24px;display:flex;align-items:center;gap:16px;min-width:270px}
+    .cert-card i{color:var(--gold);font-size:1.5rem}
+    .cert-name{font-size:.85rem;font-weight:600}
+    .cert-org{font-size:.72rem;color:var(--gray);margin-top:2px}
+
+    /* TESTIMONIALS */
+    #testimonials{background:var(--black-2)}
+    .t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+    .t-card{background:var(--black-3);border:1px solid rgba(201,168,76,.15);border-radius:24px;overflow:hidden;transition:all .4s;position:relative}
+    .t-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold-dark),var(--gold-light));z-index:1}
+    .t-card:hover{transform:translateY(-8px);border-color:rgba(201,168,76,.5);box-shadow:0 30px 60px rgba(0,0,0,.4),0 0 40px rgba(201,168,76,.1)}
+    .t-screenshot{width:100%;display:block;cursor:zoom-in;transition:transform .3s ease, filter .3s ease}.t-screenshot:hover{filter:brightness(1.05)}
+    .t-footer{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(201,168,76,.1)}
+    .t-stars{color:#F59E0B;font-size:.95rem;letter-spacing:1px}
+    .t-platform{font-size:.73rem;color:var(--gray);display:flex;align-items:center;gap:6px}
+    .t-platform i{color:#0A66C2;font-size:.9rem}
+    @media(max-width:900px){.t-grid{grid-template-columns:1fr}}
+
+    /* CONTACT */
+    #contact{background:var(--black)}
+    .contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:80px}
+    .contact-item{display:flex;align-items:center;gap:20px;background:var(--black-3);border:1px solid rgba(201,168,76,.1);border-radius:16px;padding:22px;margin-bottom:14px;transition:all var(--transition)}
+    .contact-item:hover{border-color:rgba(201,168,76,.4);transform:translateX(-6px)}
+    .contact-icon{width:50px;height:50px;border-radius:12px;background:rgba(201,168,76,.1);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.1rem;flex-shrink:0}
+    .contact-text .lbl{font-size:.72rem;color:var(--gray);margin-bottom:4px}
+    .contact-text .val{font-size:.9rem;font-weight:600}
+    .social-links{display:flex;gap:14px;margin-top:32px}
+    .social-btn{width:48px;height:48px;border-radius:12px;background:var(--black-3);border:1px solid rgba(201,168,76,.2);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.1rem;text-decoration:none;transition:all var(--transition)}
+    .social-btn:hover{background:var(--gold);color:var(--black);transform:translateY(-4px);box-shadow:0 10px 24px rgba(201,168,76,.4)}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+    .form-group{display:flex;flex-direction:column;gap:8px}
+    .form-group label{font-size:.82rem;color:var(--gray);font-weight:600}
+    .form-group input,.form-group textarea,.form-group select{background:var(--black-3);border:1px solid rgba(201,168,76,.15);border-radius:12px;padding:14px 18px;color:var(--white);font-size:.9rem;outline:none;transition:all var(--transition);resize:vertical;font-family:inherit}
+    .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.1)}
+    .form-group input::placeholder,.form-group textarea::placeholder{color:var(--gray)}
+    .form-group select option{background:var(--black-3)}
+    .form-group textarea{min-height:120px}
+    .btn-submit{width:100%;padding:16px;background:linear-gradient(135deg,var(--gold-light),var(--gold));color:var(--black);font-size:1rem;font-weight:700;border:none;border-radius:12px;cursor:pointer;transition:all var(--transition);display:flex;align-items:center;justify-content:center;gap:10px;margin-top:8px;box-shadow:0 8px 30px rgba(201,168,76,.3);font-family:inherit}
+    .btn-submit:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(201,168,76,.5)}
+    .btn-submit.sent{background:#22c55e}
+
+    /* FOOTER */
+    footer{background:var(--black-2);border-top:1px solid rgba(201,168,76,.1);padding:40px 60px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;position:relative;z-index:1}
+    .footer-logo{font-family:var(--font-en);font-size:1.4rem;font-weight:900;background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .footer-copy{font-size:.82rem;color:var(--gray)}
+    .footer-copy span{color:var(--gold)}
+
+    /* MOBILE */
+    @media(max-width:900px){
+      nav{padding:16px 24px}
+      nav.scrolled{padding:12px 24px}
+      .nav-links{display:none;flex-direction:column;position:fixed;inset:0;background:rgba(10,10,10,.97);align-items:center;justify-content:center;gap:40px;z-index:999}
+      .nav-links.open{display:flex}
+      .nav-links a{font-size:1.3rem}
+      .hamburger{display:flex}
+      section{padding:80px 24px}
+      #hero{padding:100px 24px 80px;flex-direction:column}
+      .hero-content{max-width:100%;text-align:center}
+      .hero-img-wrap{display:none}
+      .hero-stats{justify-content:center;gap:24px;flex-wrap:wrap}
+      .hero-btns{justify-content:center}
+      .hero-desc{margin:0 auto 36px}
+      .about-grid{grid-template-columns:1fr;gap:40px}
+      .about-img-box{max-width:340px;margin:0 auto}
+      .skills-grid{grid-template-columns:1fr}
+      .tools-grid{grid-template-columns:repeat(2,1fr)}
+      .projects-grid{grid-template-columns:1fr}
+      .edu-grid{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr;gap:40px}
+      .timeline-item{grid-template-columns:1fr}
+      .timeline-period{display:none}
+      .form-row{grid-template-columns:1fr}
+      footer{flex-direction:column;text-align:center;padding:30px 24px}
+    }
+
+    /* PROJECT MODAL */
+    .pmodal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s}
+    .pmodal-overlay.active{opacity:1;pointer-events:all}
+    .pmodal-box{background:var(--black-2);border:1px solid rgba(201,168,76,.3);border-radius:24px;max-width:900px;width:100%;max-height:90vh;overflow-y:auto;position:relative;transform:translateY(40px);transition:transform .3s;padding:40px}
+    .pmodal-overlay.active .pmodal-box{transform:translateY(0)}
+    .pmodal-close{position:absolute;top:16px;left:16px;width:38px;height:38px;border-radius:50%;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);color:var(--gold);font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s}
+    .pmodal-close:hover{background:var(--gold);color:var(--black)}
+    .pmodal-logo{text-align:center;margin-bottom:24px}
+    .pmodal-logo img{max-height:100px;max-width:280px;object-fit:contain;border-radius:12px}
+    .pmodal-title{font-size:1.4rem;font-weight:900;text-align:center;margin-bottom:28px;background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .pmodal-screenshots{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
+    .pmodal-screenshots img{width:100%;border-radius:14px;border:1px solid rgba(201,168,76,.15);transition:transform .3s}
+    .pmodal-screenshots img:hover{transform:scale(1.02)}
+    .pmodal-screenshots.single{grid-template-columns:1fr}
+    .pmodal-platforms{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;justify-content:center}
+    .pmodal-platform{display:flex;align-items:center;gap:8px;background:var(--black-3);border:1px solid rgba(201,168,76,.15);border-radius:50px;padding:8px 18px;font-size:.85rem;color:var(--white)}
+    .pmodal-platform i{color:var(--gold);font-size:1rem}
+    .pmodal-achievements{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .pmodal-achievements li{background:var(--black-3);border:1px solid rgba(201,168,76,.1);border-radius:12px;padding:12px 16px;font-size:.85rem;color:var(--gray);display:flex;align-items:flex-start;gap:10px}
+    .pmodal-achievements li::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0;margin-top:7px}
+    .pmodal-stat-row{display:flex;gap:16px;justify-content:center;margin-bottom:28px}
+    .pmodal-stat{background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.2);border-radius:16px;padding:16px 28px;text-align:center}
+    .pmodal-stat .n{font-family:Poppins,sans-serif;font-size:2rem;font-weight:900;color:var(--gold);display:block}
+    .pmodal-stat .l{font-size:.75rem;color:var(--gray)}
+    .pmodal-section-title{font-size:.8rem;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin:20px 0 12px;font-family:Poppins,sans-serif}
+    /* Project cards clickable */
+    .project-card{cursor:pointer}
+    .project-card .view-btn{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:9px 20px;border-radius:50px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.2);color:var(--gold);font-size:.8rem;font-weight:600;transition:all .3s}
+    .project-card:hover .view-btn{background:var(--gold);color:var(--black)}
+    @media(max-width:700px){.pmodal-screenshots,.pmodal-achievements{grid-template-columns:1fr}.pmodal-stat-row{flex-wrap:wrap}}
+  
+    /* LIGHTBOX / IMAGE ZOOM */
+    .lightbox-overlay{position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s ease}
+    .lightbox-overlay.active{opacity:1;pointer-events:all}
+    .lightbox-img-wrap{max-width:95vw;max-height:92vh;display:flex;align-items:center;justify-content:center;position:relative}
+    .lightbox-img{max-width:100%;max-height:90vh;border-radius:12px;box-shadow:0 10px 50px rgba(0,0,0,.8);border:1px solid rgba(201,168,76,.3);object-fit:contain;cursor:zoom-out;transition:transform .2s ease}
+    .lightbox-close{position:absolute;top:-45px;right:0;background:rgba(201,168,76,.2);border:1px solid var(--gold);color:var(--gold);width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;cursor:pointer;transition:all .2s}
+    .lightbox-close:hover{background:var(--gold);color:#000}
+    .lightbox-hint{position:absolute;bottom:-35px;left:50%;transform:translateX(-50%);color:var(--gray);font-size:.8rem;font-family:var(--font-en);letter-spacing:1px;pointer-events:none}
+    
+    /* Cursor pointer for zoomable images inside modal */
+    .pmodal-screenshots img{cursor:zoom-in;position:relative}
+    .pmodal-screenshots img:hover{border-color:var(--gold);box-shadow:0 0 20px rgba(201,168,76,.25)}
+
+  </style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursor-follower"></div>
+<canvas id="particles-canvas"></canvas>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="logo">AD.</div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#hero" class="active"><span class="la">الرئيسية</span><span class="le">Home</span></a></li>
+    <li><a href="#about"><span class="la">من أنا</span><span class="le">About</span></a></li>
+    <li><a href="#skills"><span class="la">مهاراتي</span><span class="le">Skills</span></a></li>
+    <li><a href="#projects"><span class="la">مشاريعي</span><span class="le">Projects</span></a></li>
+    <li><a href="#services"><span class="la">خدماتي</span><span class="le">Services</span></a></li>
+    <li><a href="#experience"><span class="la">خبراتي</span><span class="le">Experience</span></a></li>
+    <li><a href="#education"><span class="la">تعليمي</span><span class="le">Education</span></a></li>
+    <li><a href="#testimonials"><span class="la">آراء العملاء</span><span class="le">Reviews</span></a></li>
+    <li><a href="#contact"><span class="la">تواصل معي</span><span class="le">Contact</span></a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">
+      <i class="fas fa-globe"></i>
+      <span class="la">EN</span><span class="le">عربي</span>
+    </button>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-tag reveal">
+      <i class="fas fa-circle"></i>
+      <span class="la">متاح للعمل &nbsp;|&nbsp; Available for Work</span>
+      <span class="le">Available for Work &nbsp;|&nbsp; متاح للعمل</span>
+    </div>
+    <h1 class="hero-name reveal"><span class="first">Amr</span><br><span class="last">Daabees</span></h1>
+    <p class="hero-title reveal"><span id="typed-text"></span><span class="typed-cursor"></span></p>
+    <p class="hero-desc reveal la bl">أساعد الشركات والعلامات التجارية على النمو رقمياً من خلال استراتيجيات تسويقية مبتكرة تجمع بين الإبداع والبيانات وأدوات الذكاء الاصطناعي.</p>
+    <p class="hero-desc reveal le bl">I help businesses grow digitally through innovative marketing strategies combining creativity, data, and AI tools to deliver measurable results.</p>
+    <div class="hero-btns reveal">
+      <a href="#contact" class="btn-primary"><i class="fas fa-paper-plane"></i><span class="la">تواصل معي</span><span class="le">Contact Me</span></a>
+      <a href="#projects" class="btn-secondary"><i class="fas fa-eye"></i><span class="la">أعمالي</span><span class="le">My Work</span></a>
+    </div>
+    <div class="hero-stats reveal">
+      <div class="stat-item"><div class="stat-num" data-count="3">0</div><div class="stat-label"><span class="la">سنوات خبرة</span><span class="le">Yrs Experience</span></div></div>
+      <div class="stat-item"><div class="stat-num" data-count="31">0</div><div class="stat-label"><span class="la">عميل راضي</span><span class="le">Happy Clients</span></div></div>
+      <div class="stat-item"><div class="stat-num" data-count="164">0</div><div class="stat-label"><span class="la">رسالة مبيعات</span><span class="le">Sales Messages</span></div></div>
+      <div class="stat-item"><div class="stat-num" data-count="40">0</div><div class="stat-label"><span class="la">% توفير AI</span><span class="le">% AI Saving</span></div></div>
+    </div>
+  </div>
+  <div class="hero-img-wrap">
+    <div class="hero-circle">
+      <div class="hero-dot"></div>
+      <div class="hero-avatar"><img src="photo.jpg" alt="Amr Daabees"/></div>
+    </div>
+  </div>
+  <a href="#about" class="scroll-down"><span>SCROLL</span><i class="fas fa-chevron-down"></i></a>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-box reveal-left">
+      <div class="about-deco"></div>
+      <div class="about-img-frame"><img src="photo.jpg" alt="Amr Daabees"/></div>
+      <div class="about-badge">
+        <span class="num">3+</span>
+        <span class="lbl la bl">سنوات<br>خبرة</span>
+        <span class="lbl le bl">Years<br>Exp.</span>
+      </div>
+    </div>
+    <div class="about-text reveal-right">
+      <div class="section-tag">ABOUT ME</div>
+      <h2 class="section-title">
+        <span class="la bl">من أنا؟<br><span>عمرو دعبيس</span></span>
+        <span class="le bl">Who Am I?<br><span>Amr Daabees</span></span>
+      </h2>
+      <div class="gold-divider"></div>
+      <p class="section-sub la bl">شغفي بالتسويق الرقمي بدأ من خلال التعامل المباشر مع العملاء، حيث أدركت أن العلامات التجارية الناجحة تُبنى على روابط حقيقية مع الجمهور. اليوم أجمع بين التفكير الاستراتيجي والإعلانات المدفوعة وأدوات الذكاء الاصطناعي لمساعدة الشركات على النمو الحقيقي.</p>
+      <p class="section-sub le bl">My passion for digital marketing began through direct client interactions, where I realized successful brands are built on meaningful connections. Today I combine strategic thinking, paid advertising, and AI tools to help businesses achieve sustainable growth.</p>
+      <div class="about-info">
+        <div class="info-item"><i class="fas fa-user"></i><div><div class="key"><span class="la">الاسم</span><span class="le">Name</span></div><div class="val">Amr Daabees</div></div></div>
+        <div class="info-item"><i class="fas fa-envelope"></i><div><div class="key">Email</div><div class="val" style="font-size:.76rem">amrdaabees500@gmail.com</div></div></div>
+        <div class="info-item"><i class="fab fa-whatsapp"></i><div><div class="key">WhatsApp</div><div class="val" dir="ltr">+20 102 129 1698</div></div></div>
+        <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><div class="key"><span class="la">الموقع</span><span class="le">Location</span></div><div class="val"><span class="la">القاهرة، مصر 🇪🇬</span><span class="le">Cairo, Egypt 🇪🇬</span></div></div></div>
+        <div class="info-item"><i class="fas fa-language"></i><div><div class="key"><span class="la">اللغات</span><span class="le">Languages</span></div><div class="val">عربي · English</div></div></div>
+        <div class="info-item"><i class="fas fa-briefcase"></i><div><div class="key"><span class="la">الحالة</span><span class="le">Status</span></div><div class="val" style="color:var(--gold)"><span class="la">متاح للعمل ✓</span><span class="le">Available ✓</span></div></div></div>
+      </div>
+      <a href="cv.pdf" class="btn-primary" download><i class="fas fa-download"></i><span class="la">تحميل السيرة الذاتية</span><span class="le">Download CV</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div style="text-align:center;margin-bottom:60px">
+    <div class="section-tag" style="justify-content:center">SKILLS</div>
+    <h2 class="section-title reveal"><span class="la">مهاراتي <span>المهنية</span></span><span class="le">My <span>Skills</span></span></h2>
+  </div>
+  <div class="skills-grid">
+    <div class="reveal-left">
+      <div class="skill-cat-title"><i class="fas fa-chart-line"></i><span class="la">التسويق الرقمي</span><span class="le">Digital Marketing</span></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">Social Media Marketing</span><span class="skill-pct">95%</span></div><div class="skill-bar"><div class="skill-fill" data-width="95"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">Content Marketing & Copywriting</span><span class="skill-pct">92%</span></div><div class="skill-bar"><div class="skill-fill" data-width="92"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">Email Marketing</span><span class="skill-pct">88%</span></div><div class="skill-bar"><div class="skill-fill" data-width="88"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">SEO / SEM</span><span class="skill-pct">82%</span></div><div class="skill-bar"><div class="skill-fill" data-width="82"></div></div></div>
+    </div>
+    <div class="reveal-right">
+      <div class="skill-cat-title"><i class="fas fa-ad"></i><span class="la">الإعلانات والذكاء الاصطناعي</span><span class="le">Ads & AI Tools</span></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">Meta Ads (Facebook / Instagram)</span><span class="skill-pct">93%</span></div><div class="skill-bar"><div class="skill-fill" data-width="93"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">Snapchat & TikTok Ads</span><span class="skill-pct">87%</span></div><div class="skill-bar"><div class="skill-fill" data-width="87"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">AI Content & Video Creation</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" data-width="90"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">Analytics & Reporting</span><span class="skill-pct">87%</span></div><div class="skill-bar"><div class="skill-fill" data-width="87"></div></div></div>
+    </div>
+  </div>
+  <div class="tools-grid reveal">
+    <div class="tool-card"><i class="fab fa-meta"></i><span>Meta Ads</span></div>
+    <div class="tool-card"><i class="fab fa-google"></i><span>Google Ads</span></div>
+    <div class="tool-card"><i class="fab fa-tiktok"></i><span>TikTok Ads</span></div>
+    <div class="tool-card"><i class="fab fa-snapchat"></i><span>Snapchat Ads</span></div>
+    <div class="tool-card"><i class="fas fa-video"></i><span>AI Videos</span></div>
+    <div class="tool-card"><i class="fas fa-robot"></i><span>AI Tools</span></div>
+    <div class="tool-card"><i class="fas fa-chart-bar"></i><span>Analytics</span></div>
+    <div class="tool-card"><i class="fas fa-paint-brush"></i><span>Canva Pro</span></div>
+    <div class="tool-card"><i class="fas fa-share-alt"></i><span>Hootsuite</span></div>
+    <div class="tool-card"><i class="fas fa-envelope-open-text"></i><span>Mailchimp</span></div>
+    <div class="tool-card"><i class="fas fa-search"></i><span>SEMrush</span></div>
+    <div class="tool-card"><i class="fas fa-file-alt"></i><span>ATS CV</span></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div style="text-align:center;margin-bottom:48px">
+    <div class="section-tag" style="justify-content:center">PROJECTS</div>
+    <h2 class="section-title reveal"><span class="la">أبرز <span>مشاريعي</span></span><span class="le">My <span>Projects</span></span></h2>
+    <p class="section-sub reveal la bl" style="margin:0 auto">اضغط على أي مشروع لعرض التفاصيل الكاملة</p>
+    <p class="section-sub reveal le bl" style="margin:0 auto">Click any project to view full details and screenshots</p>
+  </div>
+  <div class="projects-grid" style="grid-template-columns:repeat(3,1fr)">
+
+    <!-- CleanStep -->
+    <div class="project-card reveal" onclick="openProjectModal('cleanstep')">
+      <div class="project-thumb" style="background:linear-gradient(135deg,#e8f4ff,#c8e8ff);padding:20px;align-items:center;justify-content:center">
+        <img src="cleanstep_logo.jpg" alt="CleanStep Logo" style="max-height:140px;max-width:90%;object-fit:contain;border-radius:8px"/>
+        <span class="project-tag-badge">Meta Ads</span>
+      </div>
+      <div class="project-body">
+        <h3 class="project-title"><span class="la">مغاسل خطوة نظافة — السعودية</span><span class="le">CleanStep Laundry — KSA</span></h3>
+        <p class="project-desc la bl">إدارة كاملة لمنصات التواصل الاجتماعي وحملات Meta Ads لمغاسل كنب وستائر وسجاد في السعودية</p>
+        <p class="project-desc le bl">Full social media management & Meta Ads campaigns for a sofa & carpet cleaning company in Saudi Arabia</p>
+        <div class="project-metrics">
+          <div class="metric"><i class="fas fa-comment-dots"></i> 164 <span class="la">رسالة</span><span class="le">msgs</span></div>
+          <div class="metric"><i class="fas fa-user-check"></i> 31 <span class="la">عميل</span><span class="le">clients</span></div>
+        </div>
+        <div class="project-tools"><span class="ptool">Facebook</span><span class="ptool">Instagram</span><span class="ptool">Snapchat</span><span class="ptool">TikTok</span><span class="ptool">Meta Ads</span></div>
+        <button class="view-btn"><i class="fas fa-expand-alt"></i> <span class="la">عرض التفاصيل</span><span class="le">View Details</span></button>
+      </div>
+    </div>
+
+    <!-- BRADA -->
+    <div class="project-card reveal" onclick="openProjectModal('brada')">
+      <div class="project-thumb" style="background:linear-gradient(135deg,#f8f0f0,#f0e0e0);padding:20px;align-items:center;justify-content:center">
+        <img src="brada_logo.jpg" alt="BRADA Logo" style="max-height:140px;max-width:90%;object-fit:contain;border-radius:8px"/>
+        <span class="project-tag-badge">Social Media</span>
+      </div>
+      <div class="project-body">
+        <h3 class="project-title"><span class="la">BRADA Perfume — إدارة سوشيال</span><span class="le">BRADA Perfume — Social Media</span></h3>
+        <p class="project-desc la bl">إدارة سوشيال ميديا لعلامة عطور ناشئة باستخدام أدوات الذكاء الاصطناعي لإنتاج محتوى احترافي</p>
+        <p class="project-desc le bl">Social media management for a perfume startup leveraging AI to produce professional content at scale</p>
+        <div class="project-metrics">
+          <div class="metric"><i class="fas fa-images"></i> 50+ AI assets</div>
+          <div class="metric"><i class="fas fa-clock"></i> -40% <span class="la">وقت</span><span class="le">time</span></div>
+        </div>
+        <div class="project-tools"><span class="ptool">Facebook</span><span class="ptool">Instagram</span><span class="ptool">TikTok</span><span class="ptool">AI Tools</span></div>
+        <button class="view-btn"><i class="fas fa-expand-alt"></i> <span class="la">عرض التفاصيل</span><span class="le">View Details</span></button>
+      </div>
+    </div>
+
+    <!-- Tala Clinics -->
+    <div class="project-card reveal" onclick="openProjectModal('tala')">
+      <div class="project-thumb" style="background:#ffffff;padding:15px;display:flex;align-items:center;justify-content:center">
+        <img src="tala_logo.jpg" alt="Tala Clinics Logo" style="max-height:140px;max-width:90%;object-fit:contain;border-radius:8px"/>
+        <span class="project-tag-badge">Healthcare</span>
+      </div>
+      <div class="project-body">
+        <h3 class="project-title"><span class="la">عيادات تالا التخصصية</span><span class="le">Tala Specialized Clinics</span></h3>
+        <p class="project-desc la bl">إدارة إدارية وتنسيق التسويق الرقمي لمجمع عيادات طبية متخصصة متعددة التخصصات</p>
+        <p class="project-desc le bl">Administrative management & digital marketing coordination for a multi-specialty medical clinic complex</p>
+        <div class="project-metrics">
+          <div class="metric"><i class="fas fa-users"></i> 100+ <span class="la">مريض/شهر</span><span class="le">patients/mo</span></div>
+          <div class="metric"><i class="fas fa-user-md"></i> 10+ <span class="la">طبيب</span><span class="le">doctors</span></div>
+        </div>
+        <div class="project-tools"><span class="ptool">Strategy</span><span class="ptool">Social Media</span><span class="ptool">Admin</span></div>
+        <button class="view-btn"><i class="fas fa-expand-alt"></i> <span class="la">عرض التفاصيل</span><span class="le">View Details</span></button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECT MODAL -->
+<div id="project-modal" class="pmodal-overlay" onclick="closeModal(event)">
+  <div class="pmodal-box">
+    <button class="pmodal-close" onclick="closeProjectModal()">✕</button>
+    <div class="pmodal-logo" id="modal-logo"></div>
+    <h2 class="pmodal-title" id="modal-title"></h2>
+    <div id="modal-stat-row"></div>
+    <div id="modal-platforms"></div>
+    <div class="pmodal-screenshots" id="modal-screenshots"></div>
+    <div id="modal-details"></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div style="text-align:center;margin-bottom:60px">
+    <div class="section-tag" style="justify-content:center">SERVICES</div>
+    <h2 class="section-title reveal"><span class="la">خدماتي <span>المتخصصة</span></span><span class="le">My <span>Services</span></span></h2>
+    <p class="section-sub reveal la bl" style="margin:0 auto">كل ما تحتاجه لبناء حضور رقمي قوي وتحقيق نتائج حقيقية</p>
+    <p class="section-sub reveal le bl" style="margin:0 auto">Everything you need to build a strong digital presence and achieve real results</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal"><div class="service-icon"><i class="fas fa-mobile-alt"></i></div><div class="service-num">01</div><h3 class="service-title"><span class="la">إدارة السوشيال ميديا</span><span class="le">Social Media Management</span></h3><p class="service-desc la bl">إدارة احترافية لحساباتك على Facebook وInstagram وTikTok وSnapchat — تخطيط وكتابة ونشر وتحليل</p><p class="service-desc le bl">Professional management of your accounts — planning, writing, publishing & analytics</p><div class="service-tags"><span>Facebook</span><span>Instagram</span><span>TikTok</span><span>Snapchat</span></div></div>
+    <div class="service-card reveal"><div class="service-icon"><i class="fab fa-meta"></i></div><div class="service-num">02</div><h3 class="service-title"><span class="la">حملات Meta Ads المدفوعة</span><span class="le">Meta Ads Campaigns</span></h3><p class="service-desc la bl">تصميم وإدارة حملات إعلانية على Facebook وInstagram بهدف زيادة المبيعات والتفاعل</p><p class="service-desc le bl">Design & manage Facebook and Instagram ad campaigns to boost sales and engagement</p><div class="service-tags"><span>Facebook Ads</span><span>Instagram Ads</span><span>Retargeting</span></div></div>
+    <div class="service-card reveal"><div class="service-icon"><i class="fab fa-tiktok"></i></div><div class="service-num">03</div><h3 class="service-title">Snapchat &amp; TikTok Ads</h3><p class="service-desc la bl">حملات إعلانية احترافية على Snapchat وTikTok لاستهداف الشباب وتحقيق أعلى وصول بأقل تكلفة</p><p class="service-desc le bl">Professional ad campaigns on Snapchat & TikTok for maximum reach at minimum cost</p><div class="service-tags"><span>Snapchat Ads</span><span>TikTok Ads</span><span>Short Video</span></div></div>
+    <div class="service-card reveal"><div class="service-icon"><i class="fas fa-robot"></i></div><div class="service-num">04</div><h3 class="service-title"><span class="la">إنتاج محتوى بالذكاء الاصطناعي</span><span class="le">AI Content &amp; Videos</span></h3><p class="service-desc la bl">إنتاج محتوى مرئي وفيديوهات قصيرة باستخدام أدوات الذكاء الاصطناعي بجودة عالية</p><p class="service-desc le bl">Create visual content and short videos using AI tools with high quality in record time</p><div class="service-tags"><span>AI Videos</span><span>AI Images</span><span>Reels</span></div></div>
+    <div class="service-card reveal"><div class="service-icon"><i class="fas fa-pen-nib"></i></div><div class="service-num">05</div><h3 class="service-title"><span class="la">كتابة المحتوى والإعلانات</span><span class="le">Copywriting</span></h3><p class="service-desc la bl">كتابة نصوص إعلانية ومحتوى جذاب يحوّل المتابع إلى عميل — كابشنز ومقالات وإعلانات مدفوعة</p><p class="service-desc le bl">Write compelling ad copy and content that converts followers into clients</p><div class="service-tags"><span>Ad Copy</span><span>Captions</span><span>Articles</span></div></div>
+    <div class="service-card reveal"><div class="service-icon"><i class="fas fa-chart-line"></i></div><div class="service-num">06</div><h3 class="service-title"><span class="la">تحليل البيانات والتقارير</span><span class="le">Analytics &amp; Reporting</span></h3><p class="service-desc la bl">تقارير شهرية شاملة توضح أداء حملاتك ومنافسيك وتوصيات لتحسين النتائج</p><p class="service-desc le bl">Comprehensive monthly reports covering performance, competitors, and recommendations</p><div class="service-tags"><span>Monthly Reports</span><span>KPIs</span><span>Insights</span></div></div>
+    <div class="service-card reveal"><div class="service-icon"><i class="fas fa-envelope-open-text"></i></div><div class="service-num">07</div><h3 class="service-title"><span class="la">التسويق بالبريد الإلكتروني</span><span class="le">Email Marketing</span></h3><p class="service-desc la bl">بناء قوائم بريدية وإرسال حملات فعّالة تحوّل العملاء المحتملين إلى مشترين</p><p class="service-desc le bl">Build email lists and send effective campaigns that convert leads into paying customers</p><div class="service-tags"><span>Mailchimp</span><span>Newsletters</span><span>Automation</span></div></div>
+    <div class="service-card reveal"><div class="service-icon"><i class="fas fa-lightbulb"></i></div><div class="service-num">08</div><h3 class="service-title"><span class="la">استراتيجية تسويق رقمي متكاملة</span><span class="le">Full Digital Marketing Strategy</span></h3><p class="service-desc la bl">بناء خطة تسويقية شاملة تحدد جمهورك ومنافسيك وأهدافك وكيفية تحقيقها</p><p class="service-desc le bl">Build a comprehensive plan identifying your audience, competitors, and goals</p><div class="service-tags"><span>Strategy</span><span>Competitor Analysis</span><span>Content Plan</span></div></div>
+    <div class="service-card reveal"><div class="service-icon"><i class="fas fa-globe"></i></div><div class="service-num">09</div><h3 class="service-title"><span class="la">بناء الهوية الرقمية للعلامة</span><span class="le">Digital Brand Building</span></h3><p class="service-desc la bl">بناء هوية رقمية قوية ومتسقة لعلامتك التجارية عبر جميع القنوات</p><p class="service-desc le bl">Build a strong digital identity for your brand across all channels</p><div class="service-tags"><span>Brand Identity</span><span>Tone of Voice</span><span>Visual Guide</span></div></div>
+    <div class="service-card reveal"><div class="service-icon"><i class="fas fa-comments"></i></div><div class="service-num">10</div><h3 class="service-title"><span class="la">استشارات تسويقية</span><span class="le">Marketing Consultation</span></h3><p class="service-desc la bl">جلسة 1-on-1 لتشخيص مشاكل تسويقك الحالي وتقديم خطة عمل واضحة للنمو</p><p class="service-desc le bl">1-on-1 consultation to diagnose your marketing challenges and provide a clear growth plan</p><div class="service-tags"><span>1-on-1 Session</span><span>Action Plan</span><span>Growth</span></div></div>
+    <div class="service-card reveal"><div class="service-icon"><i class="fas fa-file-alt"></i></div><div class="service-num">11</div><h3 class="service-title"><span class="la">CV متوافق مع نظام ATS</span><span class="le">ATS-Optimized CV Writing</span></h3><p class="service-desc la bl">كتابة سيرة ذاتية احترافية متوافقة مع أنظمة الفلترة الآلية ATS لتضمن وصولها لصاحب العمل</p><p class="service-desc le bl">Professional CV fully optimized for ATS systems to pass automated screening and reach recruiters</p><div class="service-tags"><span>ATS Friendly</span><span>Keywords</span><span>Professional</span></div></div>
+  </div>
+  <div style="text-align:center;margin-top:60px" class="reveal">
+    <a href="#contact" class="btn-primary"><i class="fas fa-paper-plane"></i><span class="la">احجز خدمتك الآن</span><span class="le">Book Your Service Now</span></a>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div style="text-align:center;margin-bottom:60px">
+    <div class="section-tag" style="justify-content:center">EXPERIENCE</div>
+    <h2 class="section-title reveal"><span class="la">مسيرتي <span>المهنية</span></span><span class="le">My <span>Experience</span></span></h2>
+    <div class="gold-divider" style="margin:16px auto 0"></div>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-card reveal-right">
+        <div class="exp-company">CleanStep | Freelance</div>
+        <h3 class="exp-title"><span class="la">مدير تسويق وحسابات</span><span class="le">Marketing &amp; Account Manager</span></h3>
+        <p class="exp-desc la bl">قيادة وتطوير استراتيجية التسويق والمحتوى بما يتوافق مع أهداف العمل والسوق المستهدف</p>
+        <p class="exp-desc le bl">Lead and develop the marketing & content strategy aligned with business objectives and target market.</p>
+        <ul class="exp-achievements">
+          <li><span class="la">أطلقت حملة إعلانية على Meta أسفرت عن <strong style="color:var(--gold)">164 رسالة مبيعات</strong> تحوّل منهم <strong style="color:var(--gold)">31 عميل</strong> واشتروا الخدمة فعلياً</span><span class="le">Launched a Meta Ads campaign generating <strong style="color:var(--gold)">164 sales messages</strong>, converting <strong style="color:var(--gold)">31 real paying clients</strong>.</span></li>
+          <li><span class="la">تحليل المنافسين والجمهور وتطوير Content Pillars وجدول نشر</span><span class="le">Competitor & audience analysis, content pillars & calendars.</span></li>
+          <li><span class="la">تخطيط وإدارة الحملات الإعلانية المدفوعة وتحسين الميزانية</span><span class="le">Plan, execute, and optimize paid ad campaigns with budget management.</span></li>
+          <li><span class="la">قيادة فريق Graphic Design وMedia Production وCustomer Service و UI/UX</span><span class="le">Lead Design, Media Production, Customer Service, and UI/UX teams.</span></li>
+          <li><span class="la">إعداد التقارير الدورية وتقديم Insights للإدارة</span><span class="le">Prepare periodic reports and deliver insights to management.</span></li>
+        </ul>
+      </div>
+      <div class="timeline-period reveal-left"><span class="period-badge">Aug 2026 – Present</span></div>
+      <div class="timeline-dot"></div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-card reveal-right">
+        <div class="exp-company">BRADA Perfume | Self-employed</div>
+        <h3 class="exp-title">Social Media Manager &amp; AI Content Creator</h3>
+        <p class="exp-desc la bl">إدارة الحضور الرقمي الكامل لعلامة عطور ناشئة مع توظيف الذكاء الاصطناعي</p>
+        <p class="exp-desc le bl">Managed full digital presence of a perfume startup leveraging AI to boost efficiency.</p>
+        <ul class="exp-achievements">
+          <li><span class="la">إنشاء أكثر من 50 asset رقمي باستخدام أدوات الذكاء الاصطناعي</span><span class="le">Created 50+ AI-generated social media assets.</span></li>
+          <li><span class="la">إدارة النشر على Facebook وInstagram وTikTok</span><span class="le">Managed content publishing across Facebook, Instagram, and TikTok.</span></li>
+          <li><span class="la">تقليل وقت إنتاج المحتوى بنسبة 40%</span><span class="le">Reduced content creation time by ~40% using AI tools.</span></li>
+        </ul>
+      </div>
+      <div class="timeline-period reveal-left"><span class="period-badge">Nov 2025 – Present</span></div>
+      <div class="timeline-dot"></div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-card reveal-right">
+        <div class="exp-company">Tala Specialized Clinics</div>
+        <h3 class="exp-title"><span class="la">مدير إداري ومنسق سوشيال ميديا</span><span class="le">Administrative Manager &amp; Social Media Coordinator</span></h3>
+        <p class="exp-desc la bl">إدارة العمليات الإدارية وتنسيق أنشطة التسويق الرقمي في مجمع عيادات طبية متخصصة</p>
+        <p class="exp-desc le bl">Managed administrative operations and coordinated digital marketing at a multi-specialty medical clinic complex.</p>
+        <ul class="exp-achievements">
+          <li><span class="la">تنسيق عمليات خدمة أكثر من <strong style="color:var(--gold)">100 مريض</strong> شهرياً</span><span class="le">Coordinated operations for <strong style="color:var(--gold)">100+ patients</strong> monthly.</span></li>
+          <li><span class="la">إدارة جداول أكثر من <strong style="color:var(--gold)">10 أطباء</strong> وأعضاء طاقم العمل</span><span class="le">Managed schedules for <strong style="color:var(--gold)">10+ doctors</strong> and staff members.</span></li>
+          <li><span class="la">دعم الأنشطة التسويقية عبر تخصصات طبية متعددة</span><span class="le">Supported marketing activities across multiple medical specialties.</span></li>
+        </ul>
+      </div>
+      <div class="timeline-period reveal-left"><span class="period-badge">Oct 2024 – Dec 2025</span></div>
+      <div class="timeline-dot"></div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div style="text-align:center;margin-bottom:60px">
+    <div class="section-tag" style="justify-content:center">EDUCATION</div>
+    <h2 class="section-title reveal"><span class="la">التعليم و <span>الشهادات</span></span><span class="le">Education &amp; <span>Certifications</span></span></h2>
+  </div>
+  <div class="edu-grid">
+    <div class="edu-card reveal">
+      <div class="edu-icon" style="background:#fff;padding:4px"><img src="kma_logo.jpg" alt="KMA" style="width:100%;height:100%;object-fit:contain;border-radius:6px"></div>
+      <div class="edu-degree"><span class="la">بكالوريوس نظم المعلومات الإدارية</span><span class="le">B.Sc. Management Information Systems</span></div>
+      <div class="edu-school"><span class="la">معهد كينج مريوط العالي</span><span class="le">King Marriout Higher Institute</span></div>
+      <div class="edu-year">May 2014 – May 2017</div>
+      <span class="edu-grade"><span class="la">التقدير: جيد</span><span class="le">Grade: Good</span></span>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-icon" style="background:#0a0a0a;padding:4px"><img src="digilians_logo.png" alt="Digilians" style="width:100%;height:100%;object-fit:contain;border-radius:6px"></div>
+      <div class="edu-degree"><span class="la">دبلومة التسويق الإلكتروني</span><span class="le">Digital Marketing Diploma</span></div>
+      <div class="edu-school">Digilians — <span class="la">الرواد الرقميون</span><span class="le">Digital Pioneers Initiative</span></div>
+      <div class="edu-year">Digital Marketing</div>
+      <span class="edu-grade"><span class="la">تسويق رقمي متقدم</span><span class="le">Advanced Digital Marketing</span></span>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-icon"><i class="fab fa-meta"></i></div>
+      <div class="edu-degree">Meta Social Media Marketing</div>
+      <div class="edu-school">Meta Blueprint</div>
+      <div class="edu-year">Certified</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-icon"><i class="fas fa-robot"></i></div>
+      <div class="edu-degree">AI Tools for Marketers</div>
+      <div class="edu-school"><span class="la">مهارات تطبيقية في الذكاء الاصطناعي</span><span class="le">Applied AI Marketing Skills</span></div>
+      <div class="edu-year">Ongoing</div>
+    </div>
+  </div>
+  <div class="certs-slider">
+    <div class="cert-track">
+      <div class="cert-card"><i class="fab fa-meta"></i><div><div class="cert-name">Meta Blueprint</div><div class="cert-org">Meta</div></div></div>
+      <div class="cert-card"><i class="fas fa-medal"></i><div><div class="cert-name">Digital Marketing Diploma</div><div class="cert-org">Digilians</div></div></div>
+      <div class="cert-card"><i class="fab fa-google"></i><div><div class="cert-name">Google Ads Fundamentals</div><div class="cert-org">Google Skillshop</div></div></div>
+      <div class="cert-card"><i class="fas fa-robot"></i><div><div class="cert-name">AI Content Creation</div><div class="cert-org">Applied Skills</div></div></div>
+      <div class="cert-card"><i class="fab fa-tiktok"></i><div><div class="cert-name">TikTok for Business</div><div class="cert-org">TikTok Academy</div></div></div>
+      <div class="cert-card"><i class="fab fa-snapchat"></i><div><div class="cert-name">Snapchat Ads Manager</div><div class="cert-org">Snap Inc.</div></div></div>
+      <div class="cert-card"><i class="fab fa-meta"></i><div><div class="cert-name">Meta Blueprint</div><div class="cert-org">Meta</div></div></div>
+      <div class="cert-card"><i class="fas fa-medal"></i><div><div class="cert-name">Digital Marketing Diploma</div><div class="cert-org">Digilians</div></div></div>
+      <div class="cert-card"><i class="fab fa-google"></i><div><div class="cert-name">Google Ads Fundamentals</div><div class="cert-org">Google Skillshop</div></div></div>
+      <div class="cert-card"><i class="fas fa-robot"></i><div><div class="cert-name">AI Content Creation</div><div class="cert-org">Applied Skills</div></div></div>
+      <div class="cert-card"><i class="fab fa-tiktok"></i><div><div class="cert-name">TikTok for Business</div><div class="cert-org">TikTok Academy</div></div></div>
+      <div class="cert-card"><i class="fab fa-snapchat"></i><div><div class="cert-name">Snapchat Ads Manager</div><div class="cert-org">Snap Inc.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div style="text-align:center;margin-bottom:60px">
+    <div class="section-tag" style="justify-content:center">TESTIMONIALS</div>
+    <h2 class="section-title reveal"><span class="la">آراء <span>عملائي</span></span><span class="le">Client <span>Reviews</span></span></h2>
+    <div style="margin-top:-20px;margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:10px">
+      <span style="font-size:1.4rem;color:#F59E0B">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span style="font-size:.85rem;color:var(--gray);font-family:var(--font-en)">5.0 &middot; LinkedIn Verified Reviews</span>
+    </div>
+  </div>
+  <div class="t-grid">
+    <div class="t-card reveal">
+      <img src="testimonial1.png" alt="Abdelrahman Kamar Review" class="t-screenshot" onclick="openLightbox(this.src)" title="اضغط للتكبير / Click to zoom" style="cursor:zoom-in"/>
+      <div class="t-footer">
+        <span class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733; 5.0</span>
+        <span class="t-platform"><i class="fab fa-linkedin"></i> LinkedIn &middot; Sep 2026</span>
+      </div>
+    </div>
+    <div class="t-card reveal">
+      <img src="testimonial2.png" alt="Khalid Al-Harbi Review" class="t-screenshot" onclick="openLightbox(this.src)" title="اضغط للتكبير / Click to zoom" style="cursor:zoom-in"/>
+      <div class="t-footer">
+        <span class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733; 5.0</span>
+        <span class="t-platform"><i class="fab fa-linkedin"></i> LinkedIn &middot; Aug 2026</span>
+      </div>
+    </div>
+    <div class="t-card reveal">
+      <img src="testimonial3.png" alt="Hala Eid Review" class="t-screenshot" onclick="openLightbox(this.src)" title="اضغط للتكبير / Click to zoom" style="cursor:zoom-in"/>
+      <div class="t-footer">
+        <span class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733; 5.0</span>
+        <span class="t-platform"><i class="fab fa-linkedin"></i> LinkedIn &middot; Sep 2026</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div style="text-align:center;margin-bottom:60px">
+    <div class="section-tag" style="justify-content:center">CONTACT</div>
+    <h2 class="section-title reveal"><span class="la">تواصل <span>معي</span></span><span class="le">Get In <span>Touch</span></span></h2>
+    <p class="section-sub reveal la bl" style="margin:0 auto">هل لديك مشروع أو فكرة؟ أنا هنا لمساعدتك. تواصل معي الآن.</p>
+    <p class="section-sub reveal le bl" style="margin:0 auto">Have a project or idea? I'm here to help. Let's connect now.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="reveal-right">
+      <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div class="contact-text"><div class="lbl">Email</div><div class="val">amrdaabees500@gmail.com</div></div></div>
+      <div class="contact-item"><div class="contact-icon"><i class="fab fa-whatsapp"></i></div><div class="contact-text"><div class="lbl">WhatsApp</div><div class="val" dir="ltr">+20 102 129 1698</div></div></div>
+      <div class="contact-item"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div class="contact-text"><div class="lbl"><span class="la">الموقع</span><span class="le">Location</span></div><div class="val"><span class="la">القاهرة، مصر 🇪🇬</span><span class="le">Cairo, Egypt 🇪🇬</span></div></div></div>
+      <div class="contact-item"><div class="contact-icon"><i class="fas fa-clock"></i></div><div class="contact-text"><div class="lbl"><span class="la">وقت الاستجابة</span><span class="le">Response Time</span></div><div class="val"><span class="la">خلال 24 ساعة</span><span class="le">Within 24 hours</span></div></div></div>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/amr-daabees/" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.facebook.com/amrdaabees2020" target="_blank" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://wa.me/201021291698" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:amrdaabees500@gmail.com" class="social-btn"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="reveal-left">
+      <form id="contact-form" onsubmit="sendToWhatsApp(event)">
+        <div class="form-row">
+          <div class="form-group"><label><span class="la">الاسم الكامل</span><span class="le">Full Name</span></label><input type="text" id="f-name" placeholder="اسمك / Your name" required/></div>
+          <div class="form-group"><label>Email</label><input type="email" id="f-email" placeholder="your@email.com" required/></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label><span class="la">رقم الهاتف</span><span class="le">Phone</span></label><input type="tel" id="f-phone" placeholder="+20 1xx xxxx xxx"/></div>
+          <div class="form-group"><label><span class="la">نوع الخدمة</span><span class="le">Service Type</span></label>
+            <select id="f-service">
+              <option value="">-- <span class="la">اختر</span><span class="le">Select</span> --</option>
+              <option value="Social Media Management">Social Media Management</option>
+              <option value="Meta Ads Campaign">Meta Ads Campaign</option>
+              <option value="Snapchat & TikTok Ads">Snapchat &amp; TikTok Ads</option>
+              <option value="AI Content & Videos">AI Content &amp; Videos</option>
+              <option value="Copywriting">Copywriting</option>
+              <option value="Analytics & Reporting">Analytics &amp; Reporting</option>
+              <option value="Email Marketing">Email Marketing</option>
+              <option value="Marketing Strategy">Marketing Strategy</option>
+              <option value="Digital Brand Building">Digital Brand Building</option>
+              <option value="Marketing Consultation">Marketing Consultation</option>
+              <option value="ATS-Optimized CV">ATS-Optimized CV</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom:16px"><label><span class="la">رسالتك</span><span class="le">Your Message</span></label><textarea id="f-message" placeholder="اكتب تفاصيل مشروعك / Write your project details..." required></textarea></div>
+        <button type="submit" class="btn-submit" id="submit-btn">
+          <i class="fab fa-whatsapp"></i>
+          <span class="la">إرسال عبر واتساب</span>
+          <span class="le">Send via WhatsApp</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">AD.</div>
+  <p class="footer-copy">&copy; 2025 <span>Amr Daabees</span> — <span class="la">جميع الحقوق محفوظة</span><span class="le">All Rights Reserved</span></p>
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/amr-daabees/" target="_blank" class="social-btn" style="width:38px;height:38px;font-size:.9rem"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://www.facebook.com/amrdaabees2020" target="_blank" class="social-btn" style="width:38px;height:38px;font-size:.9rem"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://wa.me/201021291698" target="_blank" class="social-btn" style="width:38px;height:38px;font-size:.9rem"><i class="fab fa-whatsapp"></i></a>
+  </div>
+</footer>
+
+<script>
+/* PARTICLES */
+const canvas=document.getElementById('particles-canvas'),ctx=canvas.getContext('2d');
+let W,H,ptcls=[];
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}
+resize();window.addEventListener('resize',resize);
+class P{constructor(){this.reset()}reset(){this.x=Math.random()*W;this.y=Math.random()*H;this.r=Math.random()*1.5+.3;this.vx=(Math.random()-.5)*.3;this.vy=(Math.random()-.5)*.3;this.life=Math.random();this.max=Math.random()*.6+.2}update(){this.x+=this.vx;this.y+=this.vy;this.life+=.003;if(this.x<0||this.x>W||this.y<0||this.y>H||this.life>this.max)this.reset()}draw(){const a=Math.sin((this.life/this.max)*Math.PI)*.5;ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fillStyle=`rgba(201,168,76,${a})`;ctx.fill()}}
+for(let i=0;i<120;i++)ptcls.push(new P());
+function drawConn(){for(let i=0;i<ptcls.length;i++)for(let j=i+1;j<ptcls.length;j++){const dx=ptcls[i].x-ptcls[j].x,dy=ptcls[i].y-ptcls[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<100){ctx.beginPath();ctx.moveTo(ptcls[i].x,ptcls[i].y);ctx.lineTo(ptcls[j].x,ptcls[j].y);ctx.strokeStyle=`rgba(201,168,76,${(1-d/100)*.08})`;ctx.lineWidth=.5;ctx.stroke()}}}
+function animP(){ctx.clearRect(0,0,W,H);ptcls.forEach(p=>{p.update();p.draw()});drawConn();requestAnimationFrame(animP)}
+animP();
+
+/* CURSOR */
+const cur=document.getElementById('cursor'),fol=document.getElementById('cursor-follower');
+let mx=0,my=0,fx=0,fy=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.transform=`translate(${mx-6}px,${my-6}px)`});
+(function movF(){fx+=(mx-fx)*.1;fy+=(my-fy)*.1;fol.style.transform=`translate(${fx-18}px,${fy-18}px)`;requestAnimationFrame(movF)})();
+document.querySelectorAll('a,button,.tool-card,.project-card,.service-card,.t-card,.social-btn,.contact-item').forEach(el=>{el.addEventListener('mouseenter',()=>cur.classList.add('active'));el.addEventListener('mouseleave',()=>cur.classList.remove('active'))});
+
+/* NAVBAR */
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  navbar.classList.toggle('scrolled',window.scrollY>50);
+  document.querySelectorAll('section').forEach(s=>{const top=s.offsetTop-100,id=s.id;if(window.scrollY>=top&&window.scrollY<top+s.offsetHeight){document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));const l=document.querySelector(`.nav-links a[href="#${id}"]`);if(l)l.classList.add('active')}});
+});
+
+/* HAMBURGER */
+const hbg=document.getElementById('hamburger'),nl=document.getElementById('nav-links');
+hbg.addEventListener('click',()=>{nl.classList.toggle('open');const sp=hbg.querySelectorAll('span');if(nl.classList.contains('open')){sp[0].style.transform='rotate(45deg) translate(5px,5px)';sp[1].style.opacity='0';sp[2].style.transform='rotate(-45deg) translate(5px,-5px)'}else sp.forEach(s=>{s.style.transform='';s.style.opacity=''})});
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList.remove('open');hbg.querySelectorAll('span').forEach(s=>{s.style.transform='';s.style.opacity=''})}));
+
+/* LANGUAGE */
+let currentLang='ar';
+const typedLines={
+  ar:['Digital Marketing Specialist','متخصص تسويق رقمي','Social Media Strategist','خبير Meta & Google Ads','AI Content Creator 🤖','Growth Marketer 🚀'],
+  en:['Digital Marketing Specialist','Social Media Strategist','Meta & Google Ads Expert','AI Content Creator 🤖','Performance Marketer 🚀','Brand Growth Expert']
+};
+function toggleLang(){
+  currentLang=currentLang==='ar'?'en':'ar';
+  const isEn=currentLang==='en';
+  document.body.classList.toggle('en-mode',isEn);
+  document.documentElement.lang=currentLang;
+  document.documentElement.dir=isEn?'ltr':'rtl';
+  document.querySelectorAll('.le,.reveal,.reveal-left,.reveal-right').forEach(el=>el.classList.add('visible'));
+  li=0;ci=0;del=false;typedEl.textContent='';
+}
+
+/* TYPING */
+let li=0,ci=0,del=false;
+const typedEl=document.getElementById('typed-text');
+function type(){const lines=typedLines[currentLang];const cur=lines[li];if(!del){typedEl.textContent=cur.slice(0,++ci);if(ci===cur.length){del=true;setTimeout(type,2200);return}}else{typedEl.textContent=cur.slice(0,--ci);if(ci===0){del=false;li=(li+1)%lines.length}}setTimeout(type,del?40:85)}
+type();
+
+/* REVEAL */
+const revEls=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+revEls.forEach(el=>new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){const d=+(e.target.dataset.delay||0);setTimeout(()=>e.target.classList.add('visible'),d)}}),{threshold:.1}).observe(el));
+
+/* SKILL BARS */
+document.querySelectorAll('.skills-grid > div').forEach(el=>{
+  new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.skill-fill').forEach((f,i)=>{setTimeout(()=>{f.style.width=f.dataset.width+'%'},300+i*100)})}}),{threshold:.2}).observe(el);
+});
+
+/* STAGGER service cards */
+document.querySelectorAll('.service-card').forEach((card,i)=>{
+  card.dataset.delay=String(i*60);
+});
+
+/* COUNTERS */
+new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.stat-num[data-count]').forEach(el=>{const t=+el.dataset.count;let c=0;const tm=setInterval(()=>{c+=t/60;if(c>=t){el.textContent=t;clearInterval(tm)}else el.textContent=Math.floor(c)},25)})}}),{threshold:.5}).observe(document.getElementById('hero'));
+
+/* SMOOTH SCROLL */
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})}));
+
+/* WHATSAPP FORM */
+function sendToWhatsApp(e){
+  e.preventDefault();
+  const name=document.getElementById('f-name').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  const phone=document.getElementById('f-phone').value.trim()||'لم يذكر';
+  const service=document.getElementById('f-service').value||'لم يحدد';
+  const message=document.getElementById('f-message').value.trim();
+  const isEn=currentLang==='en';
+  const waMsg=isEn
+    ?`🌟 New Inquiry from Portfolio!\n\n👤 Name: ${name}\n📧 Email: ${email}\n📱 Phone: ${phone}\n🎯 Service: ${service}\n\n💬 Message:\n${message}\n\n— Sent from amrdaabees.com`
+    :`🌟 رسالة جديدة من الـ Portfolio!\n\n👤 الاسم: ${name}\n📧 البريد: ${email}\n📱 الهاتف: ${phone}\n🎯 الخدمة: ${service}\n\n💬 الرسالة:\n${message}\n\n— تم الإرسال من: amrdaabees.com`;
+  const url=`https://wa.me/201021291698?text=${encodeURIComponent(waMsg)}`;
+  const btn=document.getElementById('submit-btn');
+  const orig=btn.innerHTML;
+  btn.innerHTML=`<i class="fas fa-check"></i> <span>${isEn?'Opening WhatsApp...':'جاري فتح واتساب...'}</span>`;
+  btn.classList.add('sent');
+  window.open(url,'_blank');
+  setTimeout(()=>{btn.innerHTML=orig;btn.classList.remove('sent');document.getElementById('contact-form').reset()},3000);
+}
+
+/* PROJECT MODAL DATA */
+const projectData = {
+  cleanstep: {
+    logo: '<img src="cleanstep_logo.jpg" alt="CleanStep"/>',
+    titleAr: 'مغاسل خطوة نظافة — السعودية',
+    titleEn: 'CleanStep Laundry — Saudi Arabia',
+    stats: [{n:'164',l:'رسالة مبيعات / Messages'},{n:'31',l:'عميل اشترى / Paid Clients'},{n:'59K',l:'Impressions'}],
+    platforms: [
+      {icon:'fab fa-facebook',name:'Facebook'},
+      {icon:'fab fa-instagram',name:'Instagram'},
+      {icon:'fab fa-snapchat',name:'Snapchat'},
+      {icon:'fab fa-tiktok',name:'TikTok'}
+    ],
+    screenshots: ['cleanstep_fb.png','cleanstep_ads.png'],
+    achievementsAr: [
+      'إدارة صفحة Facebook (1.6K+ متابع) — محتوى ويومي وتصاميم جرافيك',
+      'إدارة حساب Instagram — Reels وبوستات احترافية',
+      'إدارة حساب Snapchat وTikTok — فيديوهات قصيرة وإعلانات',
+      'تشغيل حملات Meta Ads مدفوعة (Engagement + Sales Messages)',
+      'نتيجة الحملة: 59,221 impression و 164 رسالة مبيعات',
+      '31 عميل اشترى الخدمة فعلياً من أصل 164 رسالة'
+    ],
+    achievementsEn: [
+      'Managed Facebook page (1.6K+ followers) — daily content & graphic designs',
+      'Managed Instagram account — Reels and professional posts',
+      'Managed Snapchat & TikTok — short videos and ads',
+      'Ran paid Meta Ads (Engagement + Sales Messages campaigns)',
+      'Campaign result: 59,221 impressions & 164 sales messages',
+      '31 real paying clients converted from 164 messages'
+    ]
+  },
+  brada: {
+    logo: '<img src="brada_logo.jpg" alt="BRADA Perfume" style="background:#fff;padding:10px;border-radius:12px"/>',
+    titleAr: 'BRADA Perfume — إدارة سوشيال ميديا',
+    titleEn: 'BRADA Perfume — Social Media Management',
+    stats: [{n:'50+',l:'AI Assets'},{n:'-40%',l:'وقت الإنتاج / Production Time'},{n:'3',l:'منصات / Platforms'}],
+    platforms: [
+      {icon:'fab fa-facebook',name:'Facebook'},
+      {icon:'fab fa-instagram',name:'Instagram'},
+      {icon:'fab fa-tiktok',name:'TikTok'}
+    ],
+    screenshots: ['brada_page.png'],
+    achievementsAr: [
+      'إنتاج 50+ أصل رقمي (صور وفيديوهات) باستخدام أدوات الذكاء الاصطناعي',
+      'إدارة النشر اليومي على Facebook وInstagram وTikTok',
+      'تصميم وتطوير هوية بصرية متسقة للعلامة التجارية',
+      'إنتاج فيديوهات قصيرة احترافية للـ Reels وTikTok',
+      'تقليل وقت إنتاج المحتوى بنسبة 40% باستخدام AI',
+      'متابعة أداء المحتوى وتحسين الاستراتيجية بناءً على النتائج'
+    ],
+    achievementsEn: [
+      'Produced 50+ digital assets (images & videos) using AI tools',
+      'Managed daily publishing on Facebook, Instagram & TikTok',
+      'Designed and developed a consistent visual brand identity',
+      'Produced professional short-form videos for Reels & TikTok',
+      'Reduced content production time by 40% using AI',
+      'Monitored content performance and optimized strategy accordingly'
+    ]
+  },
+  tala: {
+    logo: '<img src="tala_logo.jpg" alt="Tala Clinics" style="max-height:110px;background:#fff;padding:8px;border-radius:12px;object-fit:contain"/>',
+    titleAr: 'عيادات تالا التخصصية',
+    titleEn: 'Tala Specialized Clinics',
+    stats: [{n:'8.5K',l:'متابعين / Followers'},{n:'100+',l:'مريض/شهر / Patients/Mo'},{n:'10+',l:'أطباء / Doctors'}],
+    platforms: [
+      {icon:'fab fa-facebook',name:'Facebook (8.5K)'},
+      {icon:'fas fa-hospital-user',name:'Patient Experience'},
+      {icon:'fas fa-stethoscope',name:'Medical Marketing'}
+    ],
+    screenshots: ['tala_fb.png', 'tala_content1.png', 'tala_content2.png', 'tala_content3.png'],
+    achievementsAr: [
+      'إدارة وتنسيق المحتوى والتسويق الرقمي لصفحة العيادات على Facebook (8.5K+ متابع)',
+      'تطوير وتصميم بوستات وباقات الفحوصات الطبية والعروض الموسمية',
+      'إدارة الحملات الإعلانية ونشر التوعية الطبية لمختلف التخصصات',
+      'تنسيق عمليات وخدمة أكثر من 100 مريض شهرياً',
+      'إدارة وتنسيق جداول أكثر من 10 أطباء واستشاريين وأعضاء فريق العمل',
+      'بناء الهوية البصرية للعيادات وتوحيد التصاميم الإعلانية والطبية'
+    ],
+    achievementsEn: [
+      'Managed social media marketing and content for Tala Clinics Facebook page (8.5K+ followers)',
+      'Designed and executed medical service packages, promotional campaigns and seasonal offers',
+      'Ran digital campaigns and patient awareness across multiple medical specialties',
+      'Coordinated operations for 100+ patients monthly with smooth workflows',
+      'Managed schedules for 10+ specialized doctors, consultants and staff members',
+      'Built and maintained visual identity and medical branding across all clinic assets'
+    ]
+  }
+};
+
+function openProjectModal(id) {
+  const d = projectData[id];
+  const isEn = currentLang === 'en';
+  // Logo
+  document.getElementById('modal-logo').innerHTML = d.logo;
+  // Title
+  document.getElementById('modal-title').innerHTML = isEn ? d.titleEn : d.titleAr;
+  // Stats
+  document.getElementById('modal-stat-row').innerHTML =
+    '<div class="pmodal-stat-row">' +
+    d.stats.map(s => `<div class="pmodal-stat"><span class="n">${s.n}</span><span class="l">${s.l}</span></div>`).join('') +
+    '</div>';
+  // Platforms
+  document.getElementById('modal-platforms').innerHTML =
+    '<p class="pmodal-section-title">' + (isEn ? 'Managed Platforms' : 'المنصات المدارة') + '</p>' +
+    '<div class="pmodal-platforms">' +
+    d.platforms.map(p => `<div class="pmodal-platform"><i class="${p.icon}"></i>${p.name}</div>`).join('') +
+    '</div>';
+  // Screenshots
+  const scEl = document.getElementById('modal-screenshots');
+  if (d.screenshots.length === 0) {
+    scEl.innerHTML = '';
+    scEl.className = 'pmodal-screenshots';
+  } else {
+    scEl.className = d.screenshots.length === 1 ? 'pmodal-screenshots single' : 'pmodal-screenshots';
+    scEl.innerHTML = d.screenshots.map(s => `<img src="${s}" alt="screenshot" loading="lazy" onclick="openLightbox('${s}')" title="اضغط للتكبير / Click to zoom"/>`).join('');
+  }
+  // Achievements
+  const achievements = isEn ? d.achievementsEn : d.achievementsAr;
+  document.getElementById('modal-details').innerHTML =
+    '<p class="pmodal-section-title">' + (isEn ? 'Work Details' : 'تفاصيل الشغل') + '</p>' +
+    '<ul class="pmodal-achievements">' +
+    achievements.map(a => `<li>${a}</li>`).join('') +
+    '</ul>';
+  // Show modal
+  document.getElementById('project-modal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeProjectModal() {
+  document.getElementById('project-modal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+function closeModal(e) {
+  if (e.target.id === 'project-modal') closeProjectModal();
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeProjectModal(); });
+
+</script>
+
+<!-- LIGHTBOX OVERLAY -->
+<div id="lightbox" class="lightbox-overlay" onclick="closeLightbox(event)">
+  <div class="lightbox-img-wrap">
+    <button class="lightbox-close" onclick="closeLightboxDirect()">✕</button>
+    <img id="lightbox-img" class="lightbox-img" src="" alt="Enlarged screenshot" onclick="toggleZoom(event)"/>
+    <div class="lightbox-hint"><span class="la">اضغط في أي مكان للإغلاق</span><span class="le">Click anywhere to close</span></div>
+  </div>
+</div>
+
+</body>
+</html>
