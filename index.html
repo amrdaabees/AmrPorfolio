@@ -95,6 +95,14 @@ document.addEventListener('DOMContentLoaded', () => {
     @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
     .hero-name{font-family:var(--font-en);font-size:clamp(3rem,6.5vw,5.5rem);font-weight:900;line-height:1.05;letter-spacing:-2px}
     .hero-name .first{color:var(--white)}.hero-name .last{background:linear-gradient(135deg,var(--gold-light),var(--gold),var(--gold-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    
+    /* MARKET EXPERIENCE BADGES */
+    .market-badges{display:flex;align-items:center;gap:10px;margin-top:10px;margin-bottom:20px;flex-wrap:wrap}
+    .market-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.25);border-radius:50px;padding:6px 14px;font-size:.82rem;color:var(--white);font-weight:600;transition:all var(--transition)}
+    .market-badge:hover{border-color:var(--gold);background:rgba(201,168,76,.15);transform:translateY(-2px);box-shadow:0 6px 18px rgba(201,168,76,.15)}
+    .market-flag{font-size:1.05rem;line-height:1;display:inline-block}
+    .market-dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+
     .hero-title{font-size:clamp(1rem,2.2vw,1.4rem);font-weight:400;color:var(--gray);margin:16px 0 28px;min-height:2em}
     .typed-cursor{display:inline-block;width:2px;height:1.2em;background:var(--gold);margin-right:4px;animation:blink .8s infinite;vertical-align:middle}
     .hero-desc{font-size:.95rem;color:var(--gray);line-height:2;max-width:560px;margin-bottom:36px}
@@ -474,6 +482,19 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
     <h1 class="hero-name reveal"><span class="first">Amr</span><br><span class="last">Daabees</span></h1>
     <p class="hero-title reveal"><span id="typed-text"></span><span class="typed-cursor"></span></p>
+    <div class="market-badges reveal">
+      <div class="market-badge">
+        <span class="market-flag">🇸🇦</span>
+        <span class="la">خبرة بالسوق السعودي</span>
+        <span class="le">Saudi Market Experience</span>
+      </div>
+      <div class="market-dot"></div>
+      <div class="market-badge">
+        <span class="market-flag">🇪🇬</span>
+        <span class="la">خبرة بالسوق المصري</span>
+        <span class="le">Egyptian Market Experience</span>
+      </div>
+    </div>
     <p class="hero-desc reveal la bl">أساعد الشركات والعلامات التجارية على النمو رقمياً من خلال استراتيجيات تسويقية مبتكرة تجمع بين الإبداع والبيانات وأدوات الذكاء الاصطناعي.</p>
     <p class="hero-desc reveal le bl">I help businesses grow digitally through innovative marketing strategies combining creativity, data, and AI tools to deliver measurable results.</p>
     <div class="hero-btns reveal">
@@ -522,6 +543,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="info-item"><i class="fas fa-envelope"></i><div><div class="key">Email</div><div class="val" style="font-size:.76rem">amrdaabees500@gmail.com</div></div></div>
         <div class="info-item"><i class="fab fa-whatsapp"></i><div><div class="key">WhatsApp</div><div class="val" dir="ltr">+20 102 129 1698</div></div></div>
         <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><div class="key"><span class="la">الموقع</span><span class="le">Location</span></div><div class="val"><span class="la">القاهرة، مصر 🇪🇬</span><span class="le">Cairo, Egypt 🇪🇬</span></div></div></div>
+        <div class="info-item"><i class="fas fa-chart-line"></i><div><div class="key"><span class="la">الأسواق المستهدفة</span><span class="le">Target Markets</span></div><div class="val"><span class="la">السوق السعودي 🇸🇦 · السوق المصري 🇪🇬</span><span class="le">Saudi 🇸🇦 · Egyptian 🇪🇬</span></div></div></div>
         <div class="info-item"><i class="fas fa-language"></i><div><div class="key"><span class="la">اللغات</span><span class="le">Languages</span></div><div class="val">عربي · English</div></div></div>
         <div class="info-item"><i class="fas fa-briefcase"></i><div><div class="key"><span class="la">الحالة</span><span class="le">Status</span></div><div class="val" style="color:var(--gold)"><span class="la">متاح للعمل ✓</span><span class="le">Available ✓</span></div></div></div>
       </div>
@@ -924,8 +946,8 @@ nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList
 /* LANGUAGE */
 let currentLang='ar';
 const typedLines={
-  ar:['Digital Marketing Specialist','متخصص تسويق رقمي','Social Media Strategist','خبير Meta & Google Ads','AI Content Creator 🤖','Growth Marketer 🚀'],
-  en:['Digital Marketing Specialist','Social Media Strategist','Meta & Google Ads Expert','AI Content Creator 🤖','Performance Marketer 🚀','Brand Growth Expert']
+  ar:['Digital Marketing Specialist','متخصص تسويق رقمي (السوق السعودي 🇸🇦 والمصري 🇪🇬)','Social Media Strategist','خبير Meta & Google Ads','AI Content Creator 🤖','Growth Marketer 🚀'],
+  en:['Digital Marketing Specialist (Saudi 🇸🇦 & Egypt 🇪🇬)','Social Media Strategist','Meta & Google Ads Expert','AI Content Creator 🤖','Performance Marketer 🚀','Brand Growth Expert']
 };
 function toggleLang(){
   currentLang=currentLang==='ar'?'en':'ar';
