@@ -2,14 +2,26 @@
 <html lang="ar" dir="rtl">
 <head>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P7P1FGFX8F"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P7P1FGFX8F">
+document.addEventListener('DOMContentLoaded', () => {
+  const y = document.getElementById('current-year');
+  if (y) y.textContent = new Date().getFullYear();
+});
+
+</script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'G-P7P1FGFX8F');
-  </script>
+  
+document.addEventListener('DOMContentLoaded', () => {
+  const y = document.getElementById('current-year');
+  if (y) y.textContent = new Date().getFullYear();
+});
+
+</script>
 
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -362,6 +374,64 @@
     /* Cursor pointer for zoomable images inside modal */
     .pmodal-screenshots img{cursor:zoom-in;position:relative}
     .pmodal-screenshots img:hover{border-color:var(--gold);box-shadow:0 0 20px rgba(201,168,76,.25)}
+
+  
+    /* ── ADVANCED MOBILE OPTIMIZATION ── */
+    @media (hover: none) and (pointer: coarse) {
+      .cursor, .cursor-follower { display: none !important; }
+      body { cursor: auto !important; }
+      a, button { cursor: pointer !important; }
+    }
+
+    @media (max-width: 768px) {
+      /* Typography & Spacing */
+      section { padding: 70px 18px !important; }
+      .section-title { font-size: 1.85rem !important; }
+      .section-sub { font-size: 0.88rem !important; line-height: 1.7 !important; margin-bottom: 35px !important; }
+      
+      /* Hero Section Mobile */
+      #hero { padding: 90px 18px 50px !important; min-height: auto !important; text-align: center; }
+      .hero-content { margin: 0 auto !important; }
+      .hero-name { font-size: 2.8rem !important; margin-bottom: 12px !important; }
+      .hero-title { font-size: 1.1rem !important; min-height: 2.4em !important; }
+      .hero-desc { font-size: 0.88rem !important; margin-bottom: 25px !important; }
+      .hero-btns { justify-content: center !important; gap: 12px !important; }
+      .btn-primary, .btn-secondary { padding: 12px 24px !important; font-size: 0.85rem !important; width: 100% !important; max-width: 280px !important; justify-content: center !important; }
+      .hero-stats { gap: 14px !important; margin-top: 35px !important; display: grid !important; grid-template-columns: repeat(2, 1fr) !important; }
+      .stat-item { background: var(--black-3); padding: 12px 8px; border-radius: 14px; border: 1px solid rgba(201,168,76,.1); }
+      .stat-num { font-size: 1.8rem !important; }
+      .scroll-down { display: none !important; }
+
+      /* About Section Mobile */
+      .about-info { grid-template-columns: 1fr !important; gap: 10px !important; }
+      .about-badge { width: 90px !important; height: 90px !important; bottom: -12px !important; right: -10px !important; }
+      .about-badge .num { font-size: 1.4rem !important; }
+
+      /* Services Mobile */
+      .services-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+      .service-card { padding: 22px 18px !important; }
+
+      /* Projects & Testimonials Mobile */
+      .projects-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+      .t-grid { grid-template-columns: 1fr !important; gap: 18px !important; }
+      
+      /* Modals on Mobile */
+      .pmodal-box { padding: 25px 16px !important; border-radius: 18px !important; max-height: 85vh !important; }
+      .pmodal-title { font-size: 1.15rem !important; }
+      .pmodal-stat-row { gap: 8px !important; }
+      .pmodal-stat { padding: 10px 14px !important; }
+      .pmodal-stat .n { font-size: 1.4rem !important; }
+      .pmodal-achievements { grid-template-columns: 1fr !important; }
+      .pmodal-screenshots { grid-template-columns: 1fr !important; gap: 12px !important; }
+
+      /* Lightbox Mobile */
+      .lightbox-img { max-height: 80vh !important; max-width: 95vw !important; }
+      .lightbox-close { top: -38px !important; right: 5px !important; }
+
+      /* Contact & Footer */
+      .contact-grid { gap: 30px !important; }
+      footer { padding: 25px 16px !important; gap: 14px !important; flex-direction: column-reverse !important; }
+    }
 
   </style>
 </head>
@@ -812,7 +882,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">AD.</div>
-  <p class="footer-copy">&copy; 2025 <span>Amr Daabees</span> — <span class="la">جميع الحقوق محفوظة</span><span class="le">All Rights Reserved</span></p>
+  <p class="footer-copy">&copy; <span id="current-year">2026</span> <span>Amr Daabees</span> — <span class="la">جميع الحقوق محفوظة</span><span class="le">All Rights Reserved</span></p>
   <div class="social-links">
     <a href="https://www.linkedin.com/in/amr-daabees/" target="_blank" class="social-btn" style="width:38px;height:38px;font-size:.9rem"><i class="fab fa-linkedin-in"></i></a>
     <a href="https://www.facebook.com/amrdaabees2020" target="_blank" class="social-btn" style="width:38px;height:38px;font-size:.9rem"><i class="fab fa-facebook-f"></i></a>
@@ -1049,6 +1119,12 @@ function closeModal(e) {
   if (e.target.id === 'project-modal') closeProjectModal();
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeProjectModal(); });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const y = document.getElementById('current-year');
+  if (y) y.textContent = new Date().getFullYear();
+});
 
 </script>
 
